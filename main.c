@@ -85,7 +85,8 @@ int main()
                         else{
                             temp->edges = erase_edges->next;
                         }
-                        
+                        free(erase_edges);
+                        break;
                     }
                     p_erase_edges = erase_edges;
                     erase_edges = erase_edges->next;
