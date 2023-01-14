@@ -25,6 +25,12 @@ void insert_node_cmd(pnode *head)
     if (prev == NULL)
     {
         *head = malloc(sizeof(node));
+        if (*head == NULL)
+        {
+            perror("not enogh space: ");
+            exit(-1);
+        }
+        
         bzero(*head,sizeof(node));
         n = *head;
         n->node_num = from_node;
@@ -33,6 +39,11 @@ void insert_node_cmd(pnode *head)
     else if (n == NULL)
     {
         prev->next = malloc(sizeof(node));
+        if (prev->next == NULL)
+        {
+            perror("not enogh space: ");
+            exit(-1);
+        }
         bzero(prev->next,sizeof(node));
         n = prev->next;
         n->node_num = from_node;
@@ -55,6 +66,11 @@ void insert_node_cmd(pnode *head)
             if (temp_edge == NULL)
             {
                 n->edges = malloc(sizeof(edge));
+                if (n->edges == NULL)
+                {
+                    perror("not enogh space: ");
+                    exit(-1);
+                }
                 bzero(n->edges,sizeof(edge));
                 n->edges->weight = weight;
                 //Scan to find the end-point
@@ -72,6 +88,11 @@ void insert_node_cmd(pnode *head)
                 if (temp == NULL)
                 {
                     temp = malloc(sizeof(node));
+                    if (temp == NULL)
+                    {
+                        perror("not enogh space: ");
+                        exit(-1);
+                    }
                     bzero(temp,sizeof(node)); 
                     pre->next = temp;
                 }
@@ -87,6 +108,11 @@ void insert_node_cmd(pnode *head)
                     temp_edge = temp_edge -> next;
                 }
                 temp_edge->next = malloc(sizeof(edge));
+                if (temp_edge->next == NULL)
+                {
+                    perror("not enogh space: ");
+                    exit(-1);
+                }
                 bzero(temp_edge->next,sizeof(edge));
                 //Scan to find the end-point
                 temp = *head;
@@ -104,6 +130,11 @@ void insert_node_cmd(pnode *head)
                 if (temp == NULL)
                 {
                     temp = malloc(sizeof(node));
+                    if (temp == NULL)
+                    {
+                        perror("not enogh space: ");
+                        exit(-1);
+                    }
                     bzero(temp,sizeof(node));    
                     pre->next = temp;
                 }
