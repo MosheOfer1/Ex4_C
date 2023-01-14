@@ -8,7 +8,7 @@
 
 void build_graph_cmd(pnode *head)
 {
-    
+    int num_of_nodes;
     input = scanf(" %d",&num_of_nodes);
 
     //The first 'n'
