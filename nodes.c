@@ -54,7 +54,8 @@ void insert_node_cmd(pnode *head)
     while (1)
     { 
         // scan the dest node
-        input = scanf(" %c",&c);
+        input = scanf(" %s",&c);
+        if(DEBUG)printf("%c\n",c);
         if (c <= '9' && c >='0')
         {
             int weight;

@@ -8,16 +8,16 @@ OBJECTS_ALGO=algo.o
 LIB_S=libgraph.a
 
 all: graph
-$(OBJECTS_MAIN): main.c
+$(OBJECTS_MAIN): main.c graph.h
 	$(CC) $(FLAGS) main.c -o $(OBJECTS_MAIN)
 
-$(OBJECTS_GRAPH): graph.c
+$(OBJECTS_GRAPH): graph.c graph.h
 	$(CC) $(FLAGS) graph.c -o $(OBJECTS_GRAPH)
 	
-$(OBJECTS_NODE): nodes.c
+$(OBJECTS_NODE): nodes.c nodes.h graph.h
 	$(CC) $(FLAGS) nodes.c -o $(OBJECTS_NODE)
 	
-$(OBJECTS_ALGO): algo.c
+$(OBJECTS_ALGO): algo.c algo.h graph.h
 	$(CC) $(FLAGS) algo.c -o $(OBJECTS_ALGO)
 
 $(LIB_S): $(OBJECTS_MAIN) $(OBJECTS_GRAPH) $(OBJECTS_NODE) $(OBJECTS_ALGO) 
