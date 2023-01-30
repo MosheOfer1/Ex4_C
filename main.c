@@ -5,7 +5,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int input;
 
+int from_node;
+
+pnode head;
 
 char c = ' ';
 int main()
