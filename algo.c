@@ -6,13 +6,21 @@
 #include "nodes.h"
 #include "algo.h"
 
+int input;
+
+int from_node;
+
+pnode head;
+
+char c;
 
 int tsp_min = INT_MAX;
 int flag_way = 0;
 // A function to find the shortest path between two nodes
 int shortest_path(pnode head, int src, int dest, int num_nodes) {
-    int dist[num_nodes];
-    int visited[num_nodes];
+    int *dist = malloc(num_nodes * sizeof(int));
+
+    int *visited = malloc(num_nodes * sizeof(int));
     // Init the required data for dijkstra
     for (int i = 0; i < num_nodes; i++) {
         dist[i] = INT_MAX;
@@ -43,7 +51,8 @@ int shortest_path(pnode head, int src, int dest, int num_nodes) {
     {
         return -1;
     }
-    
+    free(dist);
+    free(visited);
     return ans;
 }
 
