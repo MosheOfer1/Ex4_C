@@ -6,6 +6,15 @@
 #include <stdlib.h>
 #include <strings.h>
 
+
+int input;
+
+int from_node;
+
+pnode head;
+
+char c ;
+
 void build_graph_cmd(pnode *head)
 {
     int num_of_nodes;
