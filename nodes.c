@@ -6,6 +6,14 @@
 #include "nodes.h"
 #include "algo.h"
 
+int input;
+
+int from_node;
+
+pnode head;
+
+char c ;
+
 void insert_node_cmd(pnode *head)
 {
     pnode prev = *head;
