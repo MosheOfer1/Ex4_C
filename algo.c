@@ -19,8 +19,13 @@ int flag_way = 0;
 // A function to find the shortest path between two nodes
 int shortest_path(pnode head, int src, int dest, int num_nodes) {
     int *dist = malloc(num_nodes * sizeof(int));
-
     int *visited = malloc(num_nodes * sizeof(int));
+    if (!dist || !visited)
+    {
+        perror("not enogh space: ");
+        exit(-1);
+    }
+    
     // Init the required data for dijkstra
     for (int i = 0; i < num_nodes; i++) {
         dist[i] = INT_MAX;
@@ -29,7 +34,7 @@ int shortest_path(pnode head, int src, int dest, int num_nodes) {
 
     int indexOfSrc = find_node(head, src);
     dist[indexOfSrc] = 0;
-    //visited[indexOfSrc] = 1;
+    
 
     for (int i = 0; i < num_nodes - 1; i++) {
         int u = min_distance_node(dist, visited, num_nodes);
@@ -49,10 +54,16 @@ int shortest_path(pnode head, int src, int dest, int num_nodes) {
     int ans = dist[find_node(head,dest)];
     if (ans == INT_MAX)
     {
+         free(dist);
+        free(visited);
+        dist = NULL;
+        visited = NULL;
         return -1;
     }
     free(dist);
     free(visited);
+    dist = NULL;
+    visited = NULL;
     return ans;
 }
 
