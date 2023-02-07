@@ -7,13 +7,14 @@
 #include <strings.h>
 
 
-int input;
+extern int input;
 
-int from_node;
+extern int from_node;
 
-pnode head;
+extern pnode head;
 
-char c ;
+extern char c ;
+
 
 void build_graph_cmd(pnode *head)
 {
