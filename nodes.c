@@ -6,13 +6,13 @@
 #include "nodes.h"
 #include "algo.h"
 
-int input;
+extern int input;
 
-int from_node;
+extern int from_node;
 
-pnode head;
+extern pnode head;
 
-char c ;
+extern char c ;
 
 void insert_node_cmd(pnode *head)
 {
